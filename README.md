@@ -1,1 +1,1 @@
-# channela-bot
+# channela-backend
