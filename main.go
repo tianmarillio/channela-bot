@@ -33,5 +33,9 @@ func main() {
 	channelRouter.PATCH("/:channelId", controllers.ChannelController.Update)
 	channelRouter.DELETE("/:channelId", controllers.ChannelController.Delete)
 
-	r.Run(os.Getenv("PORT"))
+	if os.Getenv("CHANNELA_ENV") == "production" {
+		r.Run(":" + os.Getenv("PORT"))
+	} else {
+		r.Run()
+	}
 }
