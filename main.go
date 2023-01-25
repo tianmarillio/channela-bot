@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/tianmarillio/channela-backend/config"
@@ -33,9 +32,5 @@ func main() {
 	channelRouter.PATCH("/:channelId", controllers.ChannelController.Update)
 	channelRouter.DELETE("/:channelId", controllers.ChannelController.Delete)
 
-	if os.Getenv("CHANNELA_ENV") == "production" {
-		r.Run(":" + os.Getenv("PORT"))
-	} else {
-		r.Run()
-	}
+	r.Run()
 }
