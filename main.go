@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/tianmarillio/channela-backend/config"
@@ -32,5 +33,5 @@ func main() {
 	channelRouter.PATCH("/:channelId", controllers.ChannelController.Update)
 	channelRouter.DELETE("/:channelId", controllers.ChannelController.Delete)
 
-	r.Run()
+	r.Run(os.Getenv("PORT"))
 }
